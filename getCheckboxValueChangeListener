@@ -1,0 +1,13 @@
+private ValueChangeListener getCheckboxValueChangeListener(final CheckBox chk, final CheckBox otherChk){
+		//clasic codependant checkboxes
+		return new ValueChangeListener() {
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void valueChange(ValueChangeEvent event) {
+				if(chk.getValue() != null){
+					otherChk.setValue(!chk.getValue());
+				}
+			}
+		};
+	}
