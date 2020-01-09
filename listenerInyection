@@ -1,0 +1,38 @@
+public class MyWindow {
+  private MyLayout layout;
+  
+  public void init() {
+    setListeners();  
+  }
+  
+  private void setListeners(){
+    layout.addValueChangeListenerToLayout(myListener());
+  }
+
+  private Listener myListener(){
+    return new Listener(){
+      @Override
+      public void change(Event e) {
+        if(//spied on components do stuff I want) {
+          //do stuff I want to do
+        } else {
+          //do something else maybe
+        }
+      }
+    };
+  }
+  
+}
+
+
+
+public class MyLayout extends Layout {
+    private Component component1;
+    private Component component2;
+
+    public void addValueChangeListenerToLayout(Listener listener) {
+      //esta funcion me permite inyectarle a este layout un listener de afuera
+      component1.addListener(listener);
+      component2.addListener(listener);
+    }
+}
